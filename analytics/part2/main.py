@@ -20,7 +20,7 @@ def main():
     members_df['member_id'] = members_df['member_id'].astype(str)
     member_products_df['member_id'] = member_products_df['member_id'].astype(str)
 
-    test_members = members_df.head(1)
+    test_members = members_df.head(20)
     
     # Initialize the Propensity Scoring System and register a rules-based model
     system = PropensityScoringSystem()

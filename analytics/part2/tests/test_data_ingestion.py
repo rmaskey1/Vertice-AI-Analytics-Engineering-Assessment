@@ -13,11 +13,11 @@ import pprint
 from components.data_ingestion import load_data, get_member_products_by_category
 from globals import PRODUCT_CATEGORIES
 
-members_df, member_products_df = load_data('../../data/members.csv', '../../data/member_product_accounts.csv')
+members_df, member_products_df = load_data('../../../data/members.csv', '../../../data/member_product_accounts.csv')
 
 sample_member_id = str(member_products_df['member_id'].iloc[0])
-lookup = get_member_products_by_category(sample_member_id, member_products_df)
+prods = get_member_products_by_category(sample_member_id, member_products_df)
 
 print("PRODUCT_CATEGORIES:", PRODUCT_CATEGORIES)
 print(f"Products for member {sample_member_id}:")
-pprint.pprint(lookup)
+pprint.pprint(prods)

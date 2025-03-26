@@ -184,10 +184,10 @@ def build_levels_full(levels: pd.DataFrame, member_level_scores: pd.DataFrame, m
 if __name__ == '__main__':
 
     # Load the CSV files into Dataframes
-    levels = pd.read_csv("data/levels.csv")
-    member_level_scores = pd.read_csv("data/member_level_scores.csv")
-    member_level_scores_history = pd.read_csv("data/member_level_scores_history.csv")
-    member_product_accounts = pd.read_csv("data/member_product_accounts.csv")
+    levels = pd.read_csv("../../data/levels.csv")
+    member_level_scores = pd.read_csv("../../data/member_level_scores.csv")
+    member_level_scores_history = pd.read_csv("../../data/member_level_scores_history.csv")
+    member_product_accounts = pd.read_csv("../../data/member_product_accounts.csv")
     
     # Build the LevelsFull metric
     levels_full_metric = build_levels_full(levels, member_level_scores, member_level_scores_history, member_product_accounts)
@@ -196,5 +196,5 @@ if __name__ == '__main__':
     levels_full_output = pprint.pformat(levels_full_metric, width=610, indent=4, compact=False)
     print(levels_full_output)
 
-    with open('analytics/part1/levels_full.txt', 'w') as out:
+    with open('levels_full.txt', 'w') as out:
         out.write(levels_full_output)

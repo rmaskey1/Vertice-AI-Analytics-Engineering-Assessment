@@ -14,8 +14,8 @@ from globals import PRODUCT_CATEGORIES_LIST
 from components.eligibility import eligibility_rules
 
 pd.set_option('display.max_columns', None)
-members_df, member_products_df = load_data('data/members.csv', 'data/member_product_accounts.csv')
-test_members = members_df.head(2)
+members_df, member_products_df = load_data('../../../data/members.csv', '../../../data/member_product_accounts.csv')
+test_members = members_df.head(2)   # Change this value to test for more members
 
 for _, member_row in test_members.iterrows():
     member = member_row.to_dict()
