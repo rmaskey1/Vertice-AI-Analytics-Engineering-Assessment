@@ -15,7 +15,8 @@ Though the assessment provides a set of Python dataclasses (e.g., `Level`, `Memb
    - Similarly, this method was used to assign levels to each user's historical scores at each point in the timeline, improving the runtime from **2 minutes to 7 seconds**.
 
 3. **Data Loading and Exploration**  
-   Since all of the data files were .csv files, using `pd.read_csv()` allowed for direct ingestion into a form of data that was ready to access and manipulate. Parsing through megabytes of data and organizing them into dataclasses took significantly longer, **upwards for 3 minutes**, compared to using `pd.read_csv()`, which took about **4 seconds**.
+   - Using `pd.read_csv()` allowed for direct ingestion into a form of data that was ready to access and manipulate
+   - Parsing through megabytes of data and organizing them into dataclasses took significantly longer, **upwards for 3 minutes**, compared to using `pd.read_csv()`, which took about **4 seconds**.
 
 **Trade-Offs**
 - Because I was not using the dataclasses, I had to manually implement the data rules and checks to remain consistent with the structure and definitions of the data models
