@@ -2,7 +2,7 @@
 
 ## Overview
 
-Part 2 implements a complete propensity scoring framework to predict the **likelihood of a member to adopt (growth)** or **abandon (churn)** a specific financial product. The system supports multiple product categories and allows for different types of scoring models (rules-based and ML-based) to be easily registered, modified, and tested. It emphasizes modularity, configurability, and clarity, while also enforcing eligibility rules and incorporating product-specific logic.
+Part 2 implements a complete propensity scoring framework to predict the **likelihood of a member to adopt (growth)** or **abandon (churn)** a specific financial product. The system supports multiple product categories and allows for different types of scoring models (rules-based and ML-based) to be easily registered, modified, and tested. It emphasizes modularity, configurability, and clarity while also enforcing eligibility rules and incorporating product-specific logic.
 
 ---
 
@@ -23,12 +23,12 @@ These categories map detailed product IDs (e.g., "Premium Checking", "Basic CD")
 
 ### 2. Data Ingestion (`components/data_ingestion.py`)
 
-**Responsibilities:**
+**Responsibilities**
 - Load, clean, and prepare `members.csv` and `member_product_accounts.csv` into Pandas Dataframes
 - Normalize product names from `member_product_accounts.csv` into general categories via `map_to_category`
 - `get_member_products_by_category`: maps each member to their product accounts per category
 - Example output for `get_member_products_by_category`:
-```json
+```python
 {
     "checking": [
         {product_dictionary},
@@ -86,12 +86,12 @@ Eligibility is determined by a combination of:
 
 #### `BasePropensityModel`
 - Base-level blueprint for all scoring models that can be used in the system
-- Abstract method `score` sets a standard function that requires all propensity models to do narrowed-down eligibility check on a member based on:
+- Abstract method `score` sets a standard function that requires all propensity models to do a narrowed-down eligibility check on a member based on:
     1. Member data `member: dict`
     2. Member's product data `products: list`
     3. Product category `category: str`
     4. Propensity scoring type `propensity_type: str`
-  If user passes these checkings, a custom scoring logic function defined within the specific models are invoked
+  If member passes these checks, a custom scoring logic function defined within the specific models is invoked
 
 #### `RulesBasedPropensityModel`
 - Initializes with a dictionary of product categories mapped to their respective eligibility function
